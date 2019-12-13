@@ -1,4 +1,3 @@
-
 #################################################### Article Scraping
 # Import Splinter and BeautifulSoup
 from splinter import Browser
@@ -116,7 +115,7 @@ def mars_facts():
 
 
 # Deactivating/Turning Off the automated browser session
-browser.quit()
+#browser.quit()
 
 # Tells Flask our script is complete and ready to run/for action
 if __name__ == "__main__":
