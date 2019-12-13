@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import datetime as dt
 
+
 # Add a function that will
 # #1) Initialize the browser 3)End the WebDriver and return the scraped data.
 def scrape_all():
