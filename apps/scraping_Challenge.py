@@ -13,18 +13,25 @@ def scrape_all():
     import datetime as dt
     # Initiate headless driver for deployment
     browser = Browser("chrome", executable_path="chromedriver", headless=True)
+    mars_info = {}
     news_title, news_paragraph = mars_news(browser)
-    # Run all scraping functions and store results in dictionary
-    data = {
-        "news_title": news_title,
-        "news_paragraph": news_paragraph,
-        "featured_image": featured_image(browser),
-        "facts": mars_facts(),
-        "last_modified": dt.datetime.now(),
-        #"resolution_image": resolution_image(browser),
-        #"hem_news": hem_news(browser)
-    }
-    return data
+    mars_info["news_title"]= news_title
+    mars_info["news_paragraph"]= news_paragraph
+    mars_info["featured_image"]=featured_image(browser)
+    mars_info["mars_facts"]=mars_facts()
+    mars_info["hemisphere_img_url"]= resolution_image(browser)
+    #hem_list = resolution_image(browser)
+    # # Run all scraping functions and store results in dictionary
+    # data = {
+    #     "news_title": news_title,
+    #     "news_paragraph": news_paragraph,
+    #     "featured_image": featured_image(browser),
+    #     "facts": mars_facts(),
+    #     "last_modified": dt.datetime.now(),
+    #     "title": title,
+    #     "img_url": img_url
+    # }
+    return mars_info
 
 # Set the executable path and initialize the chrome browser in splinter
 executable_path = {'executable_path': 'chromedriver.exe'}
@@ -114,37 +121,38 @@ def resolution_image(browser):
     # Set up the URL to visit the site
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
-    browser.is_element_present_by_css("ul.item_list li.slide", wait_time=1)
-    try:
-        # Scrape the full-size image URL. Parse the resulting html with soup
-        html = browser.html
-        resolution_soup = BeautifulSoup(html, 'html.parser')
-        results = resolution_soup.find_all('div', class_= 'item')
-        #print(results)
+    #browser.is_element_present_by_css("ul.item_list li.slide", wait_time=1)
+    #try:
+    # Scrape the full-size image URL. Parse the resulting html with soup
+    html = browser.html
+    resolution_soup = BeautifulSoup(html, 'html.parser')
+    results = resolution_soup.find_all('div', class_= 'item')
+    #print(results)
 
-        # Obtain high resolution for each of Mar's Hemisphere
-        base_url  = 'https://astrogeology.usgs.gov/search/map/Mars/Viking/'
-        hem_list = []
-        for result in results:
-            extract_img = result.find('a', class_= 'product-item')
-            extract_url = extract_img.find('img', class_='thumb')
-            #print(type(extract_url))
-            extract_url_str = str(extract_url)
-            #print(extract_url_str)
+    # Obtain high resolution for each of Mar's Hemisphere
+    base_url  = 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/'
+    hem_list = []
+    for result in results:
+        extract_img = result.find('a', class_= 'product-item')
+        extract_url = extract_img.find('img', class_='thumb')
+        #print(type(extract_url))
+        extract_url_str = str(extract_url)
+        #print(extract_url_str)
 
-            # Obtain the title
-            extract_url_str_img = extract_url_str.split('_', 1)
-            #print(extract_url_str_img )
-            extract_var =  extract_url_str_img[1].split('_thumb.png"/>')
-            #print(extract_var)
-            img_url = base_url + extract_var +  '/full.jpg'
+        # Obtain the title
+        extract_url_str_img = extract_url_str.split('_', 1)
+        #print(extract_url_str_img )
+        extract_var =  extract_url_str_img[1].split('_thumb.png"/>')
+        #print(extract_var)
+        img_url = base_url + extract_var[0] +  '/full.jpg'
+        print(img_url)
 
-            # Extracting & Appending title and  image to dict
-            title = result.find('div', class_='description').find('a', class_='product-item').find('h3').text
-            hem_dict = {'title': title, 'img_url': img_url}
-            hem_list.append(hem_dict)
-    except BaseException:
-        return None
+        # Extracting & Appending title and  image to dict
+        title = result.find('div', class_='description').find('a', class_='product-item').find('h3').text
+        hem_dict = {'title': title, 'img_url': img_url}
+        hem_list.append(hem_dict)
+#except BaseException:
+    #return None
     return(hem_list)
 
 # Deactivating/Turning Off the automated browser session
