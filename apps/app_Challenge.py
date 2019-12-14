@@ -1,7 +1,7 @@
 # Import Dependency Tools
 from flask import Flask, render_template
 from flask_pymongo import PyMongo
-import scraping
+import scraping_Challenge
 
 # Set up flask
 app = Flask(__name__)
@@ -31,22 +31,31 @@ app = Flask(__name__)
 
 
 ###################################### Challenge #########################################
-app.config["MONGO_URI"] = "mongodb://localhost:27017/hem_app"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_db"
 mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-   hem =  mongo.db.hem.find_one()
-   return render_template("index.html", hem=hem)
+   mars_info =  mongo.db.mars_data.find_one()
+   return render_template("index1.html", mars_info = mars_info)
+
 
 
 @app.route("/scrape")                   # route flask will be using
 def scrape_hem():
-   hem = mongo.db.hem
-   hem_data = scraping.scrape_all()
-   hem.update({},hem_data, upsert=True)
-   return "Scraping Complete!"
+   mars_info = mongo.db.mars_data
+   mars_data = scraping_Challenge.scrape_all()
+   mars_info.update({},mars_data, upsert=True)
+   #return render_template("index_Challenge.html", hemispheres=hemispheres)
+   return "Successful"
+
+@app.route("/hemispheres")
+def hemispheres():
+   mars_info = mongo.db.mars_data.find_one()
+   return render_template("index_Challenge.html", mars_info = mars_info)
+
+
 
 # Tell flask to run
 if __name__ == "__main__":
-   app.run()
+   app.run(debug= True)
