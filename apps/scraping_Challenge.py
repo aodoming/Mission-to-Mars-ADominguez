@@ -1,4 +1,3 @@
-
 #################################################### Article Scraping
 # Import Splinter and BeautifulSoup
 from splinter import Browser
@@ -20,17 +19,6 @@ def scrape_all():
     mars_info["featured_image"]=featured_image(browser)
     mars_info["mars_facts"]=mars_facts()
     mars_info["hemisphere_img_url"]= resolution_image(browser)
-    #hem_list = resolution_image(browser)
-    # # Run all scraping functions and store results in dictionary
-    # data = {
-    #     "news_title": news_title,
-    #     "news_paragraph": news_paragraph,
-    #     "featured_image": featured_image(browser),
-    #     "facts": mars_facts(),
-    #     "last_modified": dt.datetime.now(),
-    #     "title": title,
-    #     "img_url": img_url
-    # }
     return mars_info
 
 # Set the executable path and initialize the chrome browser in splinter
@@ -121,8 +109,6 @@ def resolution_image(browser):
     # Set up the URL to visit the site
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
-    #browser.is_element_present_by_css("ul.item_list li.slide", wait_time=1)
-    #try:
     # Scrape the full-size image URL. Parse the resulting html with soup
     html = browser.html
     resolution_soup = BeautifulSoup(html, 'html.parser')
@@ -151,8 +137,6 @@ def resolution_image(browser):
         title = result.find('div', class_='description').find('a', class_='product-item').find('h3').text
         hem_dict = {'title': title, 'img_url': img_url}
         hem_list.append(hem_dict)
-#except BaseException:
-    #return None
     return(hem_list)
 
 # Deactivating/Turning Off the automated browser session
