@@ -4,7 +4,7 @@ Splinter automates the web browser that navigates other websites on its own, and
 The data is then stored in a JSON data structure using MongoDB (a NoSQL Database).
 Finally, build a web application using flask, which executes our scraping code and help update newest data on page.
 
-### SITUATIOIN/TASK
+### SITUATION/TASK
 Automate a web browser that visits other different sites to extract data for analysis. In this task, extract data about the Mission to Mars from all over the web and store in a MongoDB database, and then render the data in a web application created with Flask.
 
 ### APPROACH
