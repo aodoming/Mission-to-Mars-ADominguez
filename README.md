@@ -11,7 +11,7 @@ Automate a web browser that visits other different sites to extract data for ana
 Before scraping the data, first understand how webpages are built. Next, write a Python script that can navigate the web for the correct data. Once the data is collected, a MongoDB is used to store the information. Here is why, MongoDB, a NOSQL document database allows for web scraped data, which comes in different forms like paragraphs and images that and are neither neat nor tidy, to be easily stored (found in scraping.py). Finally, to put it all together in a web application, I utilize Flask(found in app.py) a web framework that allows me to create a web application using Python, and then customize it with HTML and CSS.
 
 
-### RESULTS
+
 
 
 ### THINGS LEARNED
