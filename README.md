@@ -18,6 +18,9 @@ Before scraping the data, first understand how webpages are built. Next, write a
 
 ### RESULTS
 
+* Scrape Mars Data
+
+![](https://github.com/aodoming/Mission_to_Mars_ADominguez/blob/master/pics/data_gathering.png)
 
 ### THINGS LEARNED
 * Using HTML elements, as well as class and id attributes, to identify content for web scraping.
