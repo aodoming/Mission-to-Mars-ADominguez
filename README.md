@@ -30,6 +30,11 @@ Before scraping the data, first understand how webpages are built. Next, write a
 
 ![](https://github.com/aodoming/Mission_to_Mars_ADominguez/blob/master/pics/scrape_results.png)
 
+* Pandas Friendly Version of Data 
+
+![](https://github.com/aodoming/Mission_to_Mars_ADominguez/blob/master/pics/pandas_friendly_versionData.png)
+
+
 
 
 ### THINGS LEARNED
