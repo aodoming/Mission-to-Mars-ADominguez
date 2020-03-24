@@ -26,6 +26,7 @@ Before scraping the data, first understand how webpages are built. Next, write a
 
 ![](https://github.com/aodoming/Mission_to_Mars_ADominguez/blob/master/pics/mars_fact_scraping.png)
 
+* Data about the Mission to Mars
 
 ![](https://github.com/aodoming/Mission_to_Mars_ADominguez/blob/master/pics/scrape_results.png)
 
