@@ -4,6 +4,8 @@ Splinter automates the web browser that navigates other websites on its own, and
 The data is then stored in a JSON data structure using MongoDB (a NoSQL Database).
 Finally, build a web application using flask, which executes our scraping code and help update newest data on page.
 
+On a smaller scale, web scraping automates tedious tasks for personal projects. It works well for collecting current news on a specific subject, from multiple sites. Web scraping can make it a simple process. Instead of visiting each website and copying an article, a web scraping script will perform those actions and save the scraped data for later analysis.
+
 ### SITUATION/TASK
 Automate a web browser that visits other different sites to extract data for analysis. In this task, the web browser automation will visit the NASA news and Mars Hemisphere websites to extract data about the Mission to Mars from all over the web and store in a MongoDB database, and then render the data in a web application created with Flask.
 
