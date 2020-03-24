@@ -14,6 +14,8 @@ Before scraping the data, first understand how webpages are built. Next, write a
 
 * Specific method of gathering the latest data: Web scraping. 
 
+![](https://github.com/aodoming/Mission_to_Mars_ADominguez/blob/master/pics/data_gathering.png)
+
 ### RESULTS
 
 
