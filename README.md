@@ -21,4 +21,4 @@ Before scraping the data, first understand how webpages are built. Next, write a
 * Creating a web application with Flask to display the data from the web scrape.
 
 ### SOFTWARE/TOOLS
-CSS, HTML, Python, JavaScript, BeautifulSoup, Splinter, MongoDB, Flask
+CSS, HTML, Python, JavaScript, BeautifulSoup, Splinter, MongoDB, Flask, Chrome Developer Tools
