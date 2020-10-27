@@ -36,7 +36,7 @@ Before scraping the data, first understand how webpages are built. Next, write a
 
 
 
-
+### THINGS LEARNED
 * Using HTML elements, as well as class and id attributes, to identify content for web scraping.
 * Using BeautifulSoup and Splinter to automate a web browser and perform a web scrape.
 * Storing data from web scraping in MongoDB database.
